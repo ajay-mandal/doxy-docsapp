@@ -1,8 +1,17 @@
-const DocumentIdPage = () => {
+import Editor from "./editor";
+
+interface DocumentIdPageProps {
+    params: Promise<{ documentId: string}>;
+};
+
+
+const DocumentIdPage = async({ params }: DocumentIdPageProps) => {
+
+    const { documentId } = await params;
     return (
-        <div>
-            <h1>Document ID Page</h1>
-            <p>This page is for displaying a document based on its ID.</p>
+        <div className="min-h-screen bg-[#FAFBFD]">
+            Document ID: {documentId}
+            <Editor />
         </div>
     )
 }
