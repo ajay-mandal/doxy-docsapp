@@ -15,6 +15,7 @@ import ImageResize from "tiptap-extension-resize-image"
 import FontFamily from "@tiptap/extension-font-family"
 import TextStyle from '@tiptap/extension-text-style'
 import Highlight from '@tiptap/extension-highlight'
+import TextAlign from '@tiptap/extension-text-align'
 import { Color } from '@tiptap/extension-color'
 
 import { useEditorStore } from '@/store/use-editor-store'
@@ -57,6 +58,9 @@ const Editor = () => {
     },
     extensions: [
       StarterKit,
+      TextAlign.configure({
+        types: ["heading", "paragraph"]
+      }),
       Link.configure({
         openOnClick: false,
         autolink: true,
