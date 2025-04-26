@@ -20,6 +20,7 @@ import { Color } from '@tiptap/extension-color'
 
 import { useEditorStore } from '@/store/use-editor-store'
 import { FontSizeExtension } from "@/extensions/font-size"
+import { LineHeightExtension } from "@/extensions/line-height"
 
 
 
@@ -59,6 +60,10 @@ const Editor = () => {
     },
     extensions: [
       StarterKit,
+      LineHeightExtension.configure({
+        types: ['heading', 'paragraph'],
+        defaultLineHeight: "normal"
+      }),
       FontSizeExtension,
       TextAlign.configure({
         types: ["heading", "paragraph"]
