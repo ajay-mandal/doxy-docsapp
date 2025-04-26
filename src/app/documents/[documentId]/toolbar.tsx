@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { type Level } from "@tiptap/extension-heading";
 import { SketchPicker, type ColorResult } from "react-color";
+import Image from "next/image";
 
 import { cn } from "@/lib/utils";
 import { Separator } from "@/components/ui/separator";
@@ -21,7 +22,6 @@ import {
     ImageIcon, 
     ItalicIcon, 
     Link2Icon, 
-    ListCollapseIcon, 
     ListIcon, 
     ListTodoIcon, 
     LucideIcon, 
@@ -70,7 +70,12 @@ const LineHeightButton = () => {
             <button
             className="h-7 min-w-7 shrink-0 flex flex-col items-center justify-center rounded-sm hover:bg-neutral-200/80 px-1.5 overflow-hidden text-sm"
             >
-                <ListCollapseIcon className="size-4" />
+            <Image 
+                src="/line-spacing.svg" 
+                alt="Line spacing" 
+                width={16} 
+                height={16}
+            />
             </button>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="p-1 flex flex-col gap-y-1">
