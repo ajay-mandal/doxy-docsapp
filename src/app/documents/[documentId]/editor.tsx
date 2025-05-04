@@ -94,9 +94,6 @@ const Editor = () => {
       ImageResize,
       Underline
     ],
-    content: `
-    Hello There
-  `,
   })
 
   return(
