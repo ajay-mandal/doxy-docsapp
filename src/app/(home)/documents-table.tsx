@@ -11,6 +11,7 @@ import {
     TableCell
 } from '@/components/ui/table'
 import DocumentRow from "./document-row";
+import { Button } from "@/components/ui/button";
 
 interface DocumentsTableProps {
     documents: Doc<"documents">[] | undefined; 
@@ -56,6 +57,16 @@ const DocumentsTable = ({
                     )}
                 </Table>
             )}
+            <div className="flex justify-center items-center">
+                <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => loadMore(5)}
+                disabled={status !== "CanLoadMore"}
+                >
+                    {status === "CanLoadMore" ? "Load more" : "End of results"}
+                </Button>
+            </div>
         </div>
     );
 }

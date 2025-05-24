@@ -26,8 +26,8 @@ export default function RootLayout({
         className={inter.className}
       >
         <NuqsAdapter>
-        <ConvexClientProvider>
-          {children}
+          <ConvexClientProvider>
+            {children}
           </ConvexClientProvider>
         </NuqsAdapter>
       </body>

@@ -5,15 +5,15 @@ import { Building2Icon, CircleUserIcon } from "lucide-react";
 import { TableCell, TableRow } from "@/components/ui/table"
 import { Doc } from "../../../convex/_generated/dataModel";
 import DocumentMenu from "./document-menu";
+import { useRouter } from "next/navigation";
 
 interface DocumentRowProps {
     document: Doc<"documents">;
 }
 const DocumentRow = ({ document }:DocumentRowProps) => {
 
-    const onNewTabClick = (id: string) => {
-        window.open(`/documents/${id}`, "_blank")
-    }
+    const router = useRouter();
+
     return (
         <TableRow
         className="cursor-pointer"
@@ -21,7 +21,7 @@ const DocumentRow = ({ document }:DocumentRowProps) => {
             <TableCell className="w-[50px]">
                 <SiGoogledocs className="size-5 fill-blue-500"/>
             </TableCell>
-            <TableCell className="font-medium md:w-[45%]">
+            <TableCell className="font-medium md:w-[45%]" onClick={() => router.push(`/documents/${document._id}`)}>
                 {document.title}
             </TableCell>
             <TableCell className="text-muted-foreground hidden md:flex items-center gap-2">
@@ -38,7 +38,7 @@ const DocumentRow = ({ document }:DocumentRowProps) => {
                 <DocumentMenu
                 documentId={document._id}
                 title={document.title}
-                onNewTab={onNewTabClick}
+                onNewTab={() => window.open(`/documents/${document._id}`, "_blank")}
                 />
             </TableCell>
         </TableRow>
