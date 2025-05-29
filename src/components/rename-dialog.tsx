@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useMutation } from "convex/react";
+import { toast } from "sonner";
 
 import { Id } from "../../convex/_generated/dataModel";
 import { api } from "../../convex/_generated/api";
@@ -38,9 +39,11 @@ export const RenameDialog = ({ documentId, children, initialTitle }:RenameDialog
         setIsUpdating(true);
 
         update({ id: documentId, title: title.trim() || "Untitled"})
-        .then(()=> setOpen(false))
+        .then(() => toast.success("Document updated"))
+        .catch(() => toast.error("You don't have permission"))
         .finally(() => {
             setIsUpdating(false);
+            setOpen(false);
         });
     };
 

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
+import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
 
 import { DocumentInput } from "./document-input";
 import { useEditorStore } from "@/store/use-editor-store";
@@ -253,6 +254,15 @@ const Navbar = () => {
                         </Menubar>
                     </div>
                 </div>
+            </div>
+            <div className="flex gap-3 items-center pl-6">
+                <OrganizationSwitcher 
+                afterCreateOrganizationUrl="/"
+                afterLeaveOrganizationUrl="/"
+                afterSelectOrganizationUrl="/"
+                afterSelectPersonalUrl="/"
+                />
+                <UserButton />
             </div>
         </nav>
     )

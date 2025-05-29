@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useMutation } from "convex/react";
 import { Id } from "../../convex/_generated/dataModel";
 import { api } from "../../convex/_generated/api";
+import { toast } from "sonner";
 
 import {
     AlertDialog,
@@ -49,6 +50,8 @@ export const RemoveDialog = ({ documentId, children }:RemoveDialogProps) => {
                             e.stopPropagation();
                             setIsRemoving(true);
                             remove({ id: documentId})
+                            .then(()=> toast.success("Document deleted"))
+                            .catch(() => toast.error("You don't have permission"))
                             .finally(()=> setIsRemoving(false))
                         }}
                         >
