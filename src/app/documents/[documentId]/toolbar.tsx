@@ -628,7 +628,7 @@ const Toolbar = () => {
                 onClick: () => editor?.chain().focus().toggleItalic().run(),
             },
             {
-                label: "Unerline",
+                label: "Underline",
                 icon: UnderlineIcon,
                 isActive: editor?.isActive("underline"),
                 onClick: () => editor?.chain().focus().toggleUnderline().run(),
@@ -638,8 +638,8 @@ const Toolbar = () => {
             {
                 label: "Comment",
                 icon: MessageSquarePlusIcon,
-                onClick: () => console.log("TODO: Comment"),
-                isActive: false
+                onClick: () => editor?.chain().focus().addPendingComment().run(),
+                isActive: editor?.isActive("liveblocksCommentMark")
             },
             {
                 label: "List Todo",
